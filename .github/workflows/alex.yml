@@ -1,0 +1,17 @@
+name: Alex Recommends
+
+on: pull_request_target
+
+jobs:
+  alex:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Comment on new PR
+      uses: brown-ccv/alex-recommends@v1.2.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        message_id: 'alex'
+        no_binary: false
+        profanity_sureness: 2
+        pr_only: false
